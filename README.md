@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MPL Digital
 
-## Getting Started
+Website and web app for MPL Digital — a web app development and digital strategy consultancy based in North Wales, serving clients across North Wales and the North West of England.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS v4
+- **Icons:** lucide-react
+- **Analytics:** Vercel Analytics + Speed Insights (cookie-consent gated)
+- **Linting:** ESLint + eslint-plugin-jsx-a11y
+- **Formatting:** Prettier
+- **Git hooks:** Husky + lint-staged
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+
+## Setup
 
 ```bash
+npm install
+cp .env.example .env.local
+# Edit .env.local with your values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All site copy lives in `constants/content.ts`. Edit this file to update text, service descriptions, stats, etc.
 
-## Learn More
+### Adding Case Studies
 
-To learn more about Next.js, take a look at the following resources:
+Replace `placeholder: true` items in `WORK.projects` within `constants/content.ts` with real project data. Remove the `placeholder` flag to show the full card without the "Coming soon" overlay.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Updating Stats
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `ABOUT.stats` in `constants/content.ts`. Verify all figures before launch.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connect the GitHub repo to [Vercel](https://vercel.com)
+2. Set environment variables in the Vercel dashboard (see `.env.example`)
+3. Point `mpldigital.co.uk` domain to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Post-Launch Checklist
+
+- [ ] Add Google Search Console verification code to `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` env var
+- [ ] Add ICO registration number to privacy policy (`app/privacy/page.tsx`)
+- [ ] Add social profile URLs to `FOOTER.social` in `constants/content.ts`
+- [ ] Replace placeholder case studies with real projects
+- [ ] Verify and update `ABOUT.stats` with real figures
+- [ ] Add Resend backend for contact form
+
+## Environment Variables
+
+| Variable                               | Description                                       |
+| -------------------------------------- | ------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                 | Production URL (e.g., `https://mpldigital.co.uk`) |
+| `NEXT_PUBLIC_CONTACT_EMAIL`            | Contact email address                             |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console verification code           |
+| `RESEND_API_KEY`                       | Resend API key for contact form (future)          |
+
+## Accessibility
+
+This site targets WCAG 2.1 AA compliance. ESLint with `eslint-plugin-jsx-a11y` is configured to enforce accessible patterns. Run `npm run lint` to check for issues.
+
+## UK GDPR
+
+- Cookie consent banner gates analytics cookies
+- Privacy policy covers all Article 13 requirements
+- Contact form includes data processing notice
+- ICO registration placeholder included
+
+## Adding Contact Form Backend
+
+Recommended: [Resend](https://resend.com)
+
+1. Add `RESEND_API_KEY` to environment variables
+2. Create an API route at `app/api/contact/route.ts`
+3. Validate the honeypot field server-side (reject if `website` field is not empty)
+4. Send email via Resend
+5. Handle data per the privacy policy — do not forward to any third party without explicit user consent

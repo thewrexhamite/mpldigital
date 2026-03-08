@@ -1,26 +1,77 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'tailwindcss';
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #0a0a0a;
+  --color-foreground: #f0f0f0;
+  --color-surface: #141414;
+  --color-surface-light: #1c1c1c;
+  --color-slate: #3a3a3a;
+  --color-accent: #1e90ff;
+  --color-amber: #f5a623;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #9a9a9a;
+
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+
+  --font-size-display: 4.5rem;
+  --font-size-display--line-height: 1.05;
+  --font-size-display--letter-spacing: -0.03em;
+
+  --font-size-h1: 3.5rem;
+  --font-size-h1--line-height: 1.1;
+  --font-size-h1--letter-spacing: -0.02em;
+
+  --font-size-h2: 2.25rem;
+  --font-size-h2--line-height: 1.2;
+  --font-size-h2--letter-spacing: -0.01em;
+
+  --font-size-h3: 1.5rem;
+  --font-size-h3--line-height: 1.3;
+  --font-size-h3--letter-spacing: -0.01em;
+
+  --font-size-body: 1rem;
+  --font-size-body--line-height: 1.7;
+
+  --font-size-small: 0.875rem;
+  --font-size-small--line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Focus-visible ring utility */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* Screen reader only */
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
