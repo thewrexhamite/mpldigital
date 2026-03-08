@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/brand/mpl-icon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/mpl-icon-16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/brand/mpl-icon-180.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     title: SEO.ogTitle,
     description: SEO.ogDescription,
@@ -33,7 +40,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE.url}/opengraph-image`,
+        url: `${SITE.url}/brand/mpl-social-preview.png`,
         width: 1200,
         height: 630,
         alt: SITE.name,
@@ -44,7 +51,7 @@ export const metadata: Metadata = {
     card: SEO.twitterCard,
     title: SEO.ogTitle,
     description: SEO.ogDescription,
-    images: [`${SITE.url}/opengraph-image`],
+    images: [`${SITE.url}/brand/mpl-social-preview.png`],
   },
   // TODO: Add verification code after connecting Google Search Console post-launch
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
@@ -90,7 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="theme-color" content="#F5F5F7" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <script
           type="application/ld+json"

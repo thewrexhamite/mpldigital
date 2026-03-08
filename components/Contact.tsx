@@ -56,6 +56,9 @@ export default function Contact() {
     }, 1000);
   };
 
+  const inputClasses =
+    'w-full bg-surface border border-border rounded-lg px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/40 focus-ring transition-colors duration-200 hover:border-border';
+
   return (
     <section
       id="contact"
@@ -63,37 +66,34 @@ export default function Contact() {
       ref={ref as React.RefObject<HTMLElement>}
     >
       <div
-        className={`max-w-3xl mx-auto px-4 sm:px-6 py-24 transition-all duration-500 ease-out ${
+        className={`max-w-2xl mx-auto px-6 sm:px-8 py-28 transition-all duration-500 ease-out ${
           isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <h2
-          id="contact-heading"
-          className="font-heading text-h2 font-bold tracking-[-0.01em] text-text-primary mb-4"
-        >
+        <h2 id="contact-heading" className="font-heading text-h2 font-bold text-text-primary mb-5">
           {CONTACT.headline}
         </h2>
-        <p className="text-body text-text-secondary mb-4 leading-[1.7]">{CONTACT.subtext}</p>
-        <p className="text-body text-text-secondary mb-10 leading-[1.7]">
+        <p className="text-lg text-text-secondary mb-4 leading-relaxed">{CONTACT.subtext}</p>
+        <p className="text-body text-text-secondary mb-12">
           Or email us directly at{' '}
           <a
             href={`mailto:${CONTACT.email}`}
-            className="text-accent underline-offset-4 hover:underline transition-colors duration-150 focus-ring"
+            className="text-accent font-medium hover:underline underline-offset-4 transition-colors duration-150 focus-ring"
           >
             {CONTACT.email}
           </a>
         </p>
 
         {formState === 'success' ? (
-          <div className="bg-surface border border-slate rounded p-8 text-center">
-            <CheckCircle2 size={48} className="text-accent mx-auto mb-4" aria-hidden="true" />
+          <div className="bg-surface border border-border rounded-lg p-10 text-center">
+            <CheckCircle2 size={40} className="text-accent mx-auto mb-4" aria-hidden="true" />
             <p className="text-h3 font-heading font-semibold text-text-primary mb-2">
               Message sent!
             </p>
             <p className="text-body text-text-secondary">{"We'll get back to you soon."}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit} noValidate className="space-y-5">
             {/* Honeypot for spam prevention — validate server-side: reject submission if this field is not empty */}
             <input
               type="text"
@@ -105,8 +105,11 @@ export default function Contact() {
               onChange={(e) => setWebsite(e.target.value)}
             />
 
-            <div className="mb-6">
-              <label htmlFor="contact-name" className="block text-small text-text-primary mb-2">
+            <div>
+              <label
+                htmlFor="contact-name"
+                className="block text-small font-medium text-text-primary mb-1.5"
+              >
                 Name
               </label>
               <input
@@ -117,19 +120,25 @@ export default function Contact() {
                 aria-required="true"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
-                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
+                className={inputClasses}
                 placeholder="Your name"
               />
               {errors.name && (
-                <p id="name-error" className="flex items-center gap-1 mt-2 text-small text-red-600">
+                <p
+                  id="name-error"
+                  className="flex items-center gap-1.5 mt-2 text-small text-red-600"
+                >
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.name}
                 </p>
               )}
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="contact-email" className="block text-small text-text-primary mb-2">
+            <div>
+              <label
+                htmlFor="contact-email"
+                className="block text-small font-medium text-text-primary mb-1.5"
+              >
                 Email
               </label>
               <input
@@ -140,13 +149,13 @@ export default function Contact() {
                 aria-required="true"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
-                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
+                className={inputClasses}
                 placeholder="you@example.com"
               />
               {errors.email && (
                 <p
                   id="email-error"
-                  className="flex items-center gap-1 mt-2 text-small text-red-600"
+                  className="flex items-center gap-1.5 mt-2 text-small text-red-600"
                 >
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.email}
@@ -154,8 +163,11 @@ export default function Contact() {
               )}
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="contact-message" className="block text-small text-text-primary mb-2">
+            <div>
+              <label
+                htmlFor="contact-message"
+                className="block text-small font-medium text-text-primary mb-1.5"
+              >
                 Message
               </label>
               <textarea
@@ -166,13 +178,13 @@ export default function Contact() {
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={5}
-                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200 resize-y"
+                className={`${inputClasses} resize-y`}
                 placeholder="Tell us about your project..."
               />
               {errors.message && (
                 <p
                   id="message-error"
-                  className="flex items-center gap-1 mt-2 text-small text-red-600"
+                  className="flex items-center gap-1.5 mt-2 text-small text-red-600"
                 >
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.message}
@@ -180,31 +192,33 @@ export default function Contact() {
               )}
             </div>
 
-            <button
-              type="submit"
-              disabled={formState === 'loading'}
-              className="inline-flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] px-8 py-3 bg-accent text-white font-heading font-semibold text-body rounded transition-all duration-150 hover:brightness-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed focus-ring"
-            >
-              {formState === 'loading' ? (
-                <>
-                  <Loader2 size={18} className="animate-spin" aria-hidden="true" />
-                  Sending...
-                </>
-              ) : formState === 'error' ? (
-                <>
-                  <AlertCircle size={18} aria-hidden="true" />
-                  Try again
-                </>
-              ) : (
-                'Send message'
-              )}
-            </button>
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={formState === 'loading'}
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] min-w-[44px] px-7 py-3 bg-accent text-white font-medium text-body rounded-lg transition-all duration-150 hover:bg-accent/90 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed focus-ring"
+              >
+                {formState === 'loading' ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+                    Sending...
+                  </>
+                ) : formState === 'error' ? (
+                  <>
+                    <AlertCircle size={18} aria-hidden="true" />
+                    Try again
+                  </>
+                ) : (
+                  'Send message'
+                )}
+              </button>
+            </div>
 
-            <p className="text-small text-text-secondary mt-4">
+            <p className="text-small text-text-secondary">
               {CONTACT.formNote.replace('Privacy Policy', '')}{' '}
               <a
                 href="/privacy"
-                className="text-accent underline-offset-4 hover:underline transition-colors duration-150 focus-ring"
+                className="text-accent font-medium hover:underline underline-offset-4 transition-colors duration-150 focus-ring"
               >
                 Privacy Policy
               </a>{' '}

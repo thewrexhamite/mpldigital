@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { NAV } from '@/constants/content';
@@ -46,22 +47,28 @@ export default function Nav() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 border-b border-slate/40"
+      className="fixed top-0 left-0 right-0 z-40 backdrop-blur-xl bg-white/70 border-b border-border/60"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-h3 font-heading font-bold focus-ring">
-          <span className="text-accent">MPL</span>
-          <span className="text-text-primary">Digital</span>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
+        <Link href="/" className="focus-ring" aria-label="MPL Digital home">
+          <Image
+            src="/brand/mpl-logo-dark.svg"
+            alt="MPL Digital"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {NAV.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`text-small transition-colors duration-150 focus-ring ${
+              className={`text-small font-medium transition-colors duration-150 focus-ring ${
                 activeSection === link.href.replace('#', '')
-                  ? 'text-accent'
+                  ? 'text-text-primary'
                   : 'text-text-secondary hover:text-text-primary'
               }`}
             >
@@ -70,7 +77,7 @@ export default function Nav() {
           ))}
           <a
             href={NAV.cta.href}
-            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2 bg-accent text-white font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring"
+            className="inline-flex items-center justify-center min-h-[40px] px-5 py-2 bg-accent text-white font-medium text-small rounded-lg transition-all duration-150 hover:bg-accent/90 active:scale-[0.98] focus-ring"
           >
             {NAV.cta.label}
           </a>
@@ -79,12 +86,12 @@ export default function Nav() {
         <button
           ref={menuButtonRef}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center text-text-primary focus-ring"
+          className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center text-text-secondary focus-ring"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         >
-          {menuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+          {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>
       </div>
 
@@ -92,17 +99,17 @@ export default function Nav() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden border-t border-slate/40 bg-white/95 backdrop-blur-md"
+          className="md:hidden border-t border-border/60 bg-white/95 backdrop-blur-xl"
         >
-          <div className="px-4 py-4 flex flex-col gap-3">
+          <div className="px-6 py-5 flex flex-col gap-1">
             {NAV.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className={`text-body py-2 transition-colors duration-150 focus-ring ${
+                className={`text-body py-2.5 font-medium transition-colors duration-150 focus-ring ${
                   activeSection === link.href.replace('#', '')
-                    ? 'text-accent'
+                    ? 'text-text-primary'
                     : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
@@ -112,7 +119,7 @@ export default function Nav() {
             <a
               href={NAV.cta.href}
               onClick={closeMenu}
-              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 bg-accent text-white font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring mt-2"
+              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 bg-accent text-white font-medium text-small rounded-lg transition-all duration-150 hover:bg-accent/90 active:scale-[0.98] focus-ring mt-3"
             >
               {NAV.cta.label}
             </a>

@@ -7,31 +7,48 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-surface"
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Dot grid background */}
-      <div className="absolute inset-0 dot-grid-bg" aria-hidden="true" />
+      {/* Subtle node-grid motif */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.03]" aria-hidden="true">
+        <defs>
+          <pattern id="node-grid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+            <circle cx="40" cy="40" r="1.5" fill="#2563EB" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#node-grid)" />
+      </svg>
 
-      {/* Rotating geometric accent */}
-      <div
-        className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-accent/10 rotate-45 geo-rotate"
+      {/* Faint connector lines — system architecture motif */}
+      <svg
+        className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.04]"
+        viewBox="0 0 256 256"
         aria-hidden="true"
-      />
+      >
+        <g stroke="#2563EB" strokeWidth="2" strokeLinecap="round" fill="#2563EB">
+          <circle cx="40" cy="40" r="4" />
+          <circle cx="40" cy="216" r="4" />
+          <circle cx="216" cy="40" r="4" />
+          <circle cx="216" cy="216" r="4" />
+          <circle cx="128" cy="128" r="4" />
+        </g>
+        <g stroke="#2563EB" strokeWidth="2" strokeLinecap="round">
+          <line x1="40" y1="40" x2="40" y2="216" />
+          <line x1="40" y1="40" x2="128" y2="128" />
+          <line x1="128" y1="128" x2="216" y2="40" />
+          <line x1="216" y1="40" x2="216" y2="216" />
+          <line x1="128" y1="128" x2="216" y2="216" />
+        </g>
+      </svg>
 
-      {/* Bottom vignette */}
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 text-center">
         <h1
           id="hero-heading"
-          className="font-heading text-display font-bold tracking-[-0.03em] leading-[1.05] text-text-primary mb-6"
+          className="font-heading text-display font-bold tracking-[-0.04em] leading-[1.05] text-text-primary mb-6"
         >
           {HERO.headline}
         </h1>
-        <p className="text-h3 font-normal text-text-secondary max-w-2xl mx-auto mb-10 leading-[1.3]">
+        <p className="text-lg text-text-secondary max-w-xl mx-auto mb-12 leading-relaxed">
           {HERO.subheadline}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -39,10 +56,10 @@ export default function Hero() {
             <a
               key={cta.href + cta.label}
               href={cta.href}
-              className={`inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-8 py-3 font-heading font-semibold text-body rounded transition-all duration-150 focus-ring ${
+              className={`inline-flex items-center justify-center min-h-[48px] min-w-[44px] px-7 py-3 font-medium text-body rounded-lg transition-all duration-150 focus-ring ${
                 cta.variant === 'primary'
-                  ? 'bg-accent text-white hover:brightness-110 active:scale-95'
-                  : 'border border-slate text-text-primary hover:bg-black/5 hover:border-text-secondary active:scale-95'
+                  ? 'bg-accent text-white hover:bg-accent/90 active:scale-[0.98]'
+                  : 'border border-border text-text-primary hover:border-text-secondary/40 hover:bg-surface active:scale-[0.98]'
               }`}
             >
               {cta.label}
@@ -50,43 +67,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .dot-grid-bg {
-          background-image: radial-gradient(circle, rgba(0, 113, 227, 0.06) 1px, transparent 1px);
-          background-size: 32px 32px;
-          animation: pulse-grid 6s ease-in-out infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .dot-grid-bg {
-            animation: none;
-            opacity: 0.6;
-          }
-          .geo-rotate {
-            animation: none !important;
-          }
-        }
-        .geo-rotate {
-          animation: slow-rotate 120s linear infinite;
-        }
-        @keyframes pulse-grid {
-          0%,
-          100% {
-            opacity: 0.4;
-          }
-          50% {
-            opacity: 0.8;
-          }
-        }
-        @keyframes slow-rotate {
-          from {
-            transform: translateY(-50%) rotate(45deg);
-          }
-          to {
-            transform: translateY(-50%) rotate(405deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }

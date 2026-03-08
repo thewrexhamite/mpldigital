@@ -214,7 +214,7 @@ export default function PrivacyPage() {
           </section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-slate/40">
+        <div className="mt-16 pt-8 border-t border-border">
           <Link
             href="/"
             className="text-accent underline-offset-4 hover:underline transition-colors duration-150 focus-ring"

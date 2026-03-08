@@ -44,7 +44,7 @@ export default function CookieBanner() {
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-desc"
       aria-live="polite"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate shadow-lg p-4 sm:p-6"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-surface border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.04)] p-5 sm:p-6"
     >
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-1">
@@ -56,7 +56,7 @@ export default function CookieBanner() {
             cookies are used. See our{' '}
             <a
               href="/privacy"
-              className="text-accent underline-offset-4 hover:underline transition-colors duration-150 focus-ring"
+              className="text-accent font-medium hover:underline underline-offset-4 transition-colors duration-150 focus-ring"
             >
               Privacy Policy
             </a>
@@ -66,13 +66,13 @@ export default function CookieBanner() {
         <div className="flex gap-3">
           <a
             href="/privacy"
-            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-4 py-2 border border-slate text-text-primary text-small rounded transition-all duration-150 hover:bg-surface active:scale-95 focus-ring"
+            className="inline-flex items-center justify-center min-h-[40px] min-w-[44px] px-4 py-2 border border-border text-text-primary text-small font-medium rounded-lg transition-all duration-150 hover:bg-background active:scale-[0.98] focus-ring"
           >
             Learn more
           </a>
           <button
             onClick={accept}
-            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-6 py-2 bg-accent text-white font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring"
+            className="inline-flex items-center justify-center min-h-[40px] min-w-[44px] px-5 py-2 bg-accent text-white font-medium text-small rounded-lg transition-all duration-150 hover:bg-accent/90 active:scale-[0.98] focus-ring"
           >
             Accept
           </button>
