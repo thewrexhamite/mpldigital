@@ -12,6 +12,7 @@ export const NAV = {
     { label: 'About', href: '#about' },
     { label: 'Process', href: '#process' },
     { label: 'Work', href: '#work' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ],
   cta: { label: 'Start a project', href: '#contact' },
@@ -28,7 +29,8 @@ export const HERO = {
 };
 
 export const SERVICES = {
-  headline: 'What we do',
+  label: 'What we do',
+  headline: 'Services built around your goals',
   items: [
     {
       id: 'web-app-development',
@@ -59,6 +61,7 @@ export const SERVICES = {
       icon: 'Megaphone' as const,
     },
   ],
+  cta: { label: 'Discuss your project', href: '#contact' },
 };
 
 export const ABOUT = {
@@ -78,9 +81,9 @@ export const ABOUT = {
 };
 
 export const PROCESS = {
-  headline: 'How we work',
-  subheadline:
-    'A clear, repeatable process that gets results — from first conversation to live product.',
+  label: 'How we work',
+  headline: 'A clear process, every time',
+  subheadline: 'From first conversation to live product — a repeatable approach that gets results.',
   steps: [
     {
       number: '01',
@@ -111,6 +114,7 @@ export const PROCESS = {
       icon: 'TrendingUp' as const,
     },
   ],
+  cta: { label: 'Start with discovery', href: '#contact' },
 };
 
 export const WORK = {
@@ -141,6 +145,81 @@ export const WORK = {
   ],
 };
 
+export const TESTIMONIALS = {
+  label: 'What clients say',
+  headline: 'Trusted by ambitious businesses',
+  // TODO: Replace with real testimonials before launch
+  items: [
+    {
+      quote:
+        'MPL Digital transformed our digital presence. Their strategic approach meant we launched with confidence, not guesswork.',
+      name: 'Client Name',
+      role: 'Managing Director',
+      company: 'Company Name',
+      placeholder: true,
+    },
+    {
+      quote:
+        'The combination of technical skill and genuine strategic thinking is rare. MPL delivered exactly what we needed, on time and on budget.',
+      name: 'Client Name',
+      role: 'Operations Manager',
+      company: 'Company Name',
+      placeholder: true,
+    },
+    {
+      quote:
+        'From discovery to launch, the process was smooth and transparent. We always knew where we stood and what was coming next.',
+      name: 'Client Name',
+      role: 'Founder',
+      company: 'Company Name',
+      placeholder: true,
+    },
+  ],
+};
+
+export const FAQ = {
+  label: 'Common questions',
+  headline: 'Frequently asked questions',
+  items: [
+    {
+      question: 'What types of businesses do you work with?',
+      answer:
+        'We work with growing SMEs, startups, and organisations across North Wales and the North West. Our clients range from service-based businesses needing CRM systems to product companies building web applications.',
+    },
+    {
+      question: 'How long does a typical project take?',
+      answer:
+        'It depends on scope. A digital strategy engagement typically takes 2–4 weeks. Web application projects range from 6–12 weeks for an MVP to 3–6 months for a full platform. We always agree timelines upfront.',
+    },
+    {
+      question: 'What does a project cost?',
+      answer:
+        "We scope every project individually based on your requirements. Strategy engagements start from £2,500 and web application projects typically start from £5,000. We'll always give you a clear quote before any work begins.",
+    },
+    {
+      question: 'Do you offer ongoing support after launch?',
+      answer:
+        'Yes. We offer flexible support and maintenance plans to keep your product running smoothly. This includes bug fixes, feature updates, performance monitoring, and strategic reviews.',
+    },
+    {
+      question: 'What technologies do you use?',
+      answer:
+        'We primarily build with React, Next.js, TypeScript, and Node.js. For CRM work, we specialise in Zoho. We choose the right tool for each project — not the other way around.',
+    },
+    {
+      question: 'Can I see examples of your work?',
+      answer:
+        "We're currently building out our case study library. In the meantime, we're happy to walk you through relevant examples on a call. Get in touch and we'll arrange a time.",
+    },
+  ],
+};
+
+export const CTA_BANNER = {
+  headline: 'Ready to get started?',
+  subtext: "Tell us about your project and we'll get back to you within 24 hours.",
+  cta: { label: 'Start a project', href: '#contact' },
+};
+
 export const CONTACT = {
   headline: "Let's build something.",
   subtext: "Whether you have a brief or just an idea, we'd love to hear from you.",
@@ -154,6 +233,8 @@ export const FOOTER = {
   links: [
     { label: 'Services', href: '#services' },
     { label: 'About', href: '#about' },
+    { label: 'Process', href: '#process' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
     { label: 'Privacy Policy', href: '/privacy' },
   ],

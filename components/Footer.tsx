@@ -45,19 +45,26 @@ export default function Footer() {
           <div>
             <p className="text-small font-semibold text-white mb-4">Connect</p>
             <div className="flex gap-3 mb-4">
-              {FOOTER.social.map((social) => {
-                const Icon = iconMap[social.icon];
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href || '#'}
-                    aria-label={`MPL Digital on ${social.label}`}
-                    className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 ease-in-out hover:scale-110 focus-ring"
-                  >
-                    <Icon size={18} aria-hidden="true" />
-                  </a>
-                );
-              })}
+              {FOOTER.social
+                .filter((social) => social.href)
+                .map((social) => {
+                  const Icon = iconMap[social.icon];
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`MPL Digital on ${social.label}`}
+                      className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 ease-in-out hover:scale-110 focus-ring"
+                    >
+                      <Icon size={18} aria-hidden="true" />
+                    </a>
+                  );
+                })}
+              {FOOTER.social.every((s) => !s.href) && (
+                <p className="text-small text-white/40 italic">Social profiles coming soon</p>
+              )}
             </div>
             <a
               href={`mailto:${SITE.email}`}

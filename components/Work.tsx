@@ -9,13 +9,8 @@ export default function Work() {
   const { ref, isIntersecting } = useIntersectionObserver();
 
   return (
-    <section
-      id="work"
-      aria-labelledby="work-heading"
-      ref={ref as React.RefObject<HTMLElement>}
-      className="bg-surface"
-    >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-28">
+    <section id="work" aria-labelledby="work-heading" ref={ref as React.RefObject<HTMLElement>}>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-24">
         <h2
           id="work-heading"
           className={`font-heading text-h2 font-bold text-text-primary mb-5 transition-all duration-700 ease-[var(--ease-out-soft)] ${

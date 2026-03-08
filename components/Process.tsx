@@ -1,6 +1,6 @@
 'use client';
 
-import { Search, Map, Hammer, TrendingUp } from 'lucide-react';
+import { ArrowRight, Search, Map, Hammer, TrendingUp } from 'lucide-react';
 import { PROCESS } from '@/constants/content';
 import { useIntersectionObserver } from '@/lib/useIntersectionObserver';
 
@@ -20,13 +20,13 @@ export default function Process() {
       aria-labelledby="process-heading"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-28">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-24">
         <p
           className={`uppercase tracking-[0.15em] text-small text-text-secondary font-medium mb-4 transition-all duration-700 ease-[var(--ease-out-soft)] ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          How we work
+          {PROCESS.label}
         </p>
         <h2
           id="process-heading"
@@ -81,6 +81,26 @@ export default function Process() {
               </div>
             );
           })}
+        </div>
+
+        {/* Mid-section CTA */}
+        <div
+          className={`mt-14 text-center transition-all duration-700 ease-[var(--ease-out-soft)] ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ transitionDelay: isIntersecting ? '800ms' : '0ms' }}
+        >
+          <a
+            href={PROCESS.cta.href}
+            className="group inline-flex items-center gap-2 text-accent font-medium hover:underline underline-offset-4 transition-all duration-200 focus-ring"
+          >
+            {PROCESS.cta.label}
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
         </div>
       </div>
     </section>

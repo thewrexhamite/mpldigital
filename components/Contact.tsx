@@ -64,8 +64,9 @@ export default function Contact() {
       id="contact"
       aria-labelledby="contact-heading"
       ref={ref as React.RefObject<HTMLElement>}
+      className="bg-surface"
     >
-      <div className="max-w-2xl mx-auto px-6 sm:px-8 py-28">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 py-24">
         <h2
           id="contact-heading"
           className={`font-heading text-h2 font-bold text-text-primary mb-5 transition-all duration-700 ease-[var(--ease-out-soft)] ${

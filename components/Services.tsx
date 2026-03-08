@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2, LineChart, Plug, Megaphone } from 'lucide-react';
+import { ArrowRight, Code2, LineChart, Plug, Megaphone } from 'lucide-react';
 import { SERVICES } from '@/constants/content';
 import { useIntersectionObserver } from '@/lib/useIntersectionObserver';
 
@@ -20,13 +20,13 @@ export default function Services() {
       aria-labelledby="services-heading"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-28">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-24">
         <p
           className={`uppercase tracking-[0.15em] text-small text-text-secondary font-medium mb-4 transition-all duration-700 ease-[var(--ease-out-soft)] ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          {SERVICES.headline}
+          {SERVICES.label}
         </p>
         <h2
           id="services-heading"
@@ -43,7 +43,7 @@ export default function Services() {
             return (
               <div
                 key={item.id}
-                className={`group bg-surface rounded-lg p-7 border border-border/60 transition-all duration-300 ease-in-out cursor-default
+                className={`group bg-surface rounded-lg p-6 sm:p-7 border border-border/60 transition-all duration-300 ease-in-out cursor-default
                   hover:-translate-y-1 hover:shadow-soft-lg hover:border-border
                   ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                 style={{
@@ -64,6 +64,26 @@ export default function Services() {
               </div>
             );
           })}
+        </div>
+
+        {/* Mid-section CTA */}
+        <div
+          className={`mt-12 text-center transition-all duration-700 ease-[var(--ease-out-soft)] ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ transitionDelay: isIntersecting ? '600ms' : '0ms' }}
+        >
+          <a
+            href={SERVICES.cta.href}
+            className="group inline-flex items-center gap-2 text-accent font-medium hover:underline underline-offset-4 transition-all duration-200 focus-ring"
+          >
+            {SERVICES.cta.label}
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
         </div>
       </div>
     </section>
