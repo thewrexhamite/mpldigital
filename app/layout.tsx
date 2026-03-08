@@ -90,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#0A0A0A" />
+        <meta name="theme-color" content="#FFFFFF" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <script
           type="application/ld+json"

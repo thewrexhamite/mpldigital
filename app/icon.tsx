@@ -12,7 +12,7 @@ export default function Icon() {
         justifyContent: 'center',
         width: '100%',
         height: '100%',
-        backgroundColor: '#0A0A0A',
+        backgroundColor: '#0071E3',
         borderRadius: 6,
       }}
     >
@@ -20,7 +20,7 @@ export default function Icon() {
         style={{
           fontSize: 22,
           fontWeight: 700,
-          color: '#1E90FF',
+          color: '#FFFFFF',
           fontFamily: 'system-ui',
         }}
       >

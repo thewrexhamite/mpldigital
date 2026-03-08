@@ -46,7 +46,7 @@ export default function Nav() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-black/80 border-b border-slate/40"
+      className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 border-b border-slate/40"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <Link href="/" className="text-h3 font-heading font-bold focus-ring">
@@ -70,7 +70,7 @@ export default function Nav() {
           ))}
           <a
             href={NAV.cta.href}
-            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2 bg-amber text-background font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring"
+            className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2 bg-accent text-white font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring"
           >
             {NAV.cta.label}
           </a>
@@ -92,7 +92,7 @@ export default function Nav() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="md:hidden border-t border-slate/40 bg-black/95 backdrop-blur-md"
+          className="md:hidden border-t border-slate/40 bg-white/95 backdrop-blur-md"
         >
           <div className="px-4 py-4 flex flex-col gap-3">
             {NAV.links.map((link) => (
@@ -112,7 +112,7 @@ export default function Nav() {
             <a
               href={NAV.cta.href}
               onClick={closeMenu}
-              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 bg-amber text-background font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring mt-2"
+              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2 bg-accent text-white font-heading font-semibold text-small rounded transition-all duration-150 hover:brightness-110 active:scale-95 focus-ring mt-2"
             >
               {NAV.cta.label}
             </a>

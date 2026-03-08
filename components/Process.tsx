@@ -19,6 +19,7 @@ export default function Process() {
       id="process"
       aria-labelledby="process-heading"
       ref={ref as React.RefObject<HTMLElement>}
+      className="bg-surface"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24">
         <p className="uppercase tracking-widest text-small text-text-secondary mb-4">How we work</p>

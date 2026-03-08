@@ -30,7 +30,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-small text-text-secondary hover:text-text-primary transition-colors duration-150 focus-ring"
+                      className="text-small text-text-secondary hover:text-accent transition-colors duration-150 focus-ring"
                     >
                       {link.label}
                     </a>

@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Web app development and digital strategy consultancy based in North Wales.',
     start_url: '/',
     display: 'standalone',
-    theme_color: '#0A0A0A',
-    background_color: '#0A0A0A',
+    theme_color: '#FFFFFF',
+    background_color: '#FFFFFF',
     icons: [
       {
         src: '/icon',

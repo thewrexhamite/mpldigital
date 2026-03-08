@@ -24,7 +24,7 @@ export default function Work() {
           {WORK.projects.map((project, i) => (
             <div
               key={`${project.tag}-${i}`}
-              className={`relative bg-surface border border-slate rounded overflow-hidden transition-all duration-500 ease-out ${
+              className={`relative bg-white border border-slate rounded overflow-hidden transition-all duration-500 ease-out ${
                 isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{
@@ -43,9 +43,9 @@ export default function Work() {
               </div>
 
               {project.placeholder && (
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center">
+                <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center">
                   <Lock size={32} className="text-text-secondary mb-2" aria-hidden="true" />
-                  <span className="text-small text-text-secondary">Coming soon</span>
+                  <span className="text-small text-text-secondary font-medium">Coming soon</span>
                 </div>
               )}
             </div>

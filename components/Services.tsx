@@ -36,7 +36,7 @@ export default function Services() {
             return (
               <div
                 key={item.id}
-                className={`bg-surface border border-slate rounded p-6 transition-all duration-200 ease-out hover:border-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/5 ${
+                className={`bg-white border border-slate rounded p-6 transition-all duration-200 ease-out hover:border-accent hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/10 ${
                   isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
                 style={{

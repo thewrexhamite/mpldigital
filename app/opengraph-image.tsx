@@ -15,7 +15,7 @@ export default async function OGImage() {
         justifyContent: 'center',
         width: '100%',
         height: '100%',
-        backgroundColor: '#0A0A0A',
+        backgroundColor: '#F5F5F7',
         position: 'relative',
       }}
     >
@@ -28,7 +28,7 @@ export default async function OGImage() {
           transform: 'translateY(-50%) rotate(45deg)',
           width: 300,
           height: 300,
-          border: '1px solid rgba(30, 144, 255, 0.1)',
+          border: '1px solid rgba(0, 113, 227, 0.15)',
           display: 'flex',
         }}
       />
@@ -44,7 +44,7 @@ export default async function OGImage() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            color: '#1E90FF',
+            color: '#0071E3',
             fontFamily: 'system-ui',
           }}
         >
@@ -54,7 +54,7 @@ export default async function OGImage() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            color: '#F0F0F0',
+            color: '#1D1D1F',
             fontFamily: 'system-ui',
           }}
         >
@@ -64,7 +64,7 @@ export default async function OGImage() {
       <span
         style={{
           fontSize: 24,
-          color: '#9A9A9A',
+          color: '#6E6E73',
           fontFamily: 'system-ui',
         }}
       >

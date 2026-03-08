@@ -117,11 +117,11 @@ export default function Contact() {
                 aria-required="true"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
-                className="w-full bg-surface border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
+                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
                 placeholder="Your name"
               />
               {errors.name && (
-                <p id="name-error" className="flex items-center gap-1 mt-2 text-small text-red-400">
+                <p id="name-error" className="flex items-center gap-1 mt-2 text-small text-red-600">
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.name}
                 </p>
@@ -140,13 +140,13 @@ export default function Contact() {
                 aria-required="true"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
-                className="w-full bg-surface border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
+                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200"
                 placeholder="you@example.com"
               />
               {errors.email && (
                 <p
                   id="email-error"
-                  className="flex items-center gap-1 mt-2 text-small text-red-400"
+                  className="flex items-center gap-1 mt-2 text-small text-red-600"
                 >
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.email}
@@ -166,13 +166,13 @@ export default function Contact() {
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 rows={5}
-                className="w-full bg-surface border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200 resize-y"
+                className="w-full bg-white border border-slate rounded px-4 py-3 text-body text-text-primary placeholder:text-text-secondary/50 focus-ring transition-colors duration-200 resize-y"
                 placeholder="Tell us about your project..."
               />
               {errors.message && (
                 <p
                   id="message-error"
-                  className="flex items-center gap-1 mt-2 text-small text-red-400"
+                  className="flex items-center gap-1 mt-2 text-small text-red-600"
                 >
                   <AlertCircle size={14} aria-hidden="true" />
                   {errors.message}

@@ -7,20 +7,20 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-surface"
     >
       {/* Dot grid background */}
       <div className="absolute inset-0 dot-grid-bg" aria-hidden="true" />
 
       {/* Rotating geometric accent */}
       <div
-        className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-accent/5 rotate-45 geo-rotate"
+        className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-accent/10 rotate-45 geo-rotate"
         aria-hidden="true"
       />
 
       {/* Bottom vignette */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"
+        className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"
         aria-hidden="true"
       />
 
@@ -42,7 +42,7 @@ export default function Hero() {
               className={`inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-8 py-3 font-heading font-semibold text-body rounded transition-all duration-150 focus-ring ${
                 cta.variant === 'primary'
                   ? 'bg-accent text-white hover:brightness-110 active:scale-95'
-                  : 'border border-slate text-text-primary hover:bg-white/5 hover:border-white/20 active:scale-95'
+                  : 'border border-slate text-text-primary hover:bg-black/5 hover:border-text-secondary active:scale-95'
               }`}
             >
               {cta.label}
@@ -53,7 +53,7 @@ export default function Hero() {
 
       <style jsx>{`
         .dot-grid-bg {
-          background-image: radial-gradient(circle, rgba(30, 144, 255, 0.08) 1px, transparent 1px);
+          background-image: radial-gradient(circle, rgba(0, 113, 227, 0.06) 1px, transparent 1px);
           background-size: 32px 32px;
           animation: pulse-grid 6s ease-in-out infinite;
         }
