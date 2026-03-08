@@ -49,14 +49,14 @@ export default function Nav() {
       aria-label="Main navigation"
       className="fixed top-0 left-0 right-0 z-40 backdrop-blur-xl bg-white/70 border-b border-border/60"
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between h-[72px]">
         <Link href="/" className="focus-ring" aria-label="MPL Digital home">
           <Image
             src="/brand/mpl-logo-dark.svg"
             alt="MPL Digital"
-            width={160}
-            height={40}
-            className="h-8 w-auto"
+            width={200}
+            height={60}
+            className="h-11 w-auto"
             priority
           />
         </Link>

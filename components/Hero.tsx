@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { HERO } from '@/constants/content';
 
 export default function Hero() {
@@ -7,64 +8,107 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Subtle node-grid motif */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03]" aria-hidden="true">
-        <defs>
-          <pattern id="node-grid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-            <circle cx="40" cy="40" r="1.5" fill="#2563EB" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#node-grid)" />
-      </svg>
+      {/* Perspective grid background — right side */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <svg className="absolute right-0 bottom-0 w-[70%] h-full" viewBox="0 0 800 600" fill="none">
+          <defs>
+            <linearGradient id="grid-fade" x1="0" y1="0" x2="0.4" y2="0">
+              <stop offset="0" stopColor="#2563EB" stopOpacity="0" />
+              <stop offset="1" stopColor="#2563EB" stopOpacity="0.06" />
+            </linearGradient>
+            <linearGradient id="grid-fade-v" x1="0" y1="0" x2="0" y2="0.3">
+              <stop offset="0" stopColor="#2563EB" stopOpacity="0" />
+              <stop offset="1" stopColor="#2563EB" stopOpacity="0.06" />
+            </linearGradient>
+            <mask id="grid-mask">
+              <radialGradient id="grid-radial" cx="0.7" cy="0.7" r="0.5">
+                <stop offset="0" stopColor="white" />
+                <stop offset="1" stopColor="black" />
+              </radialGradient>
+              <rect width="800" height="600" fill="url(#grid-radial)" />
+            </mask>
+          </defs>
+          <g
+            mask="url(#grid-mask)"
+            style={{
+              transform: 'perspective(600px) rotateX(55deg) rotateZ(-5deg)',
+              transformOrigin: '70% 80%',
+            }}
+          >
+            {/* Horizontal lines */}
+            {Array.from({ length: 16 }, (_, i) => (
+              <line
+                key={`h-${i}`}
+                x1="0"
+                y1={i * 40}
+                x2="800"
+                y2={i * 40}
+                stroke="url(#grid-fade)"
+                strokeWidth="1"
+              />
+            ))}
+            {/* Vertical lines */}
+            {Array.from({ length: 21 }, (_, i) => (
+              <line
+                key={`v-${i}`}
+                x1={i * 40}
+                y1="0"
+                x2={i * 40}
+                y2="600"
+                stroke="url(#grid-fade-v)"
+                strokeWidth="1"
+              />
+            ))}
+          </g>
+        </svg>
 
-      {/* Faint connector lines — system architecture motif */}
-      <svg
-        className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.04]"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-      >
-        <g stroke="#2563EB" strokeWidth="2" strokeLinecap="round" fill="#2563EB">
-          <circle cx="40" cy="40" r="4" />
-          <circle cx="40" cy="216" r="4" />
-          <circle cx="216" cy="40" r="4" />
-          <circle cx="216" cy="216" r="4" />
-          <circle cx="128" cy="128" r="4" />
-        </g>
-        <g stroke="#2563EB" strokeWidth="2" strokeLinecap="round">
-          <line x1="40" y1="40" x2="40" y2="216" />
-          <line x1="40" y1="40" x2="128" y2="128" />
-          <line x1="128" y1="128" x2="216" y2="40" />
-          <line x1="216" y1="40" x2="216" y2="216" />
-          <line x1="128" y1="128" x2="216" y2="216" />
-        </g>
-      </svg>
+        {/* Soft radial glow behind the icon */}
+        <div className="absolute right-[5%] top-1/2 -translate-y-1/3 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[100px]" />
+      </div>
 
-      <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 text-center">
-        <h1
-          id="hero-heading"
-          className="font-heading text-display font-bold tracking-[-0.04em] leading-[1.05] text-text-primary mb-6"
-        >
-          {HERO.headline}
-        </h1>
-        <p className="text-lg text-text-secondary max-w-xl mx-auto mb-12 leading-relaxed">
-          {HERO.subheadline}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {HERO.ctas.map((cta) => (
-            <a
-              key={cta.href + cta.label}
-              href={cta.href}
-              className={`inline-flex items-center justify-center min-h-[48px] min-w-[44px] px-7 py-3 font-medium text-body rounded-lg transition-all duration-150 focus-ring ${
-                cta.variant === 'primary'
-                  ? 'bg-accent text-white hover:bg-accent/90 active:scale-[0.98]'
-                  : 'border border-border text-text-primary hover:border-text-secondary/40 hover:bg-surface active:scale-[0.98]'
-              }`}
-            >
-              {cta.label}
-            </a>
-          ))}
+      {/* Content grid */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left — copy */}
+        <div>
+          <h1
+            id="hero-heading"
+            className="font-heading text-display font-bold tracking-[-0.04em] leading-[1.05] text-text-primary mb-6"
+          >
+            {HERO.headlineBold} <span className="font-normal">{HERO.headlineLight}</span>
+          </h1>
+          <p className="text-xl text-text-secondary max-w-md mb-10 leading-relaxed">
+            {HERO.subheadline}
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {HERO.ctas.map((cta) => (
+              <a
+                key={cta.href + cta.label}
+                href={cta.href}
+                className={`inline-flex items-center justify-center min-h-[48px] min-w-[44px] px-7 py-3 font-medium text-body rounded-lg transition-all duration-150 focus-ring ${
+                  cta.variant === 'primary'
+                    ? 'bg-accent text-white hover:bg-accent/90 active:scale-[0.98] shadow-sm shadow-accent/20'
+                    : 'border border-border text-text-primary hover:border-text-secondary/40 hover:bg-surface active:scale-[0.98]'
+                }`}
+              >
+                {cta.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Right — brand icon */}
+        <div className="hidden md:flex items-center justify-center relative">
+          <Image
+            src="/brand/mpl-icon.svg"
+            alt=""
+            width={340}
+            height={340}
+            className="drop-shadow-[0_20px_40px_rgba(37,99,235,0.15)]"
+            aria-hidden="true"
+            priority
+          />
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Lock } from 'lucide-react';
 import { WORK } from '@/constants/content';
 import { useIntersectionObserver } from '@/lib/useIntersectionObserver';
@@ -34,28 +35,16 @@ export default function Work() {
               }}
               aria-label="Project coming soon"
             >
-              {/* Abstract node motif as placeholder cover */}
-              <div className="h-36 bg-background relative overflow-hidden">
-                <svg
-                  className="absolute inset-0 w-full h-full opacity-[0.05]"
-                  viewBox="0 0 256 256"
+              {/* Brand icon as placeholder cover */}
+              <div className="h-36 bg-background relative overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/brand/mpl-icon.svg"
+                  alt=""
+                  width={120}
+                  height={120}
+                  className="opacity-[0.06]"
                   aria-hidden="true"
-                >
-                  <g stroke="#2563EB" strokeWidth="2" fill="#2563EB">
-                    <circle cx="40" cy="40" r="4" />
-                    <circle cx="40" cy="216" r="4" />
-                    <circle cx="216" cy="40" r="4" />
-                    <circle cx="216" cy="216" r="4" />
-                    <circle cx="128" cy="128" r="4" />
-                  </g>
-                  <g stroke="#2563EB" strokeWidth="2">
-                    <line x1="40" y1="40" x2="40" y2="216" />
-                    <line x1="40" y1="40" x2="128" y2="128" />
-                    <line x1="128" y1="128" x2="216" y2="40" />
-                    <line x1="216" y1="40" x2="216" y2="216" />
-                    <line x1="128" y1="128" x2="216" y2="216" />
-                  </g>
-                </svg>
+                />
               </div>
 
               <div className="p-6">

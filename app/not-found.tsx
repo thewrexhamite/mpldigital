@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -9,6 +10,14 @@ export default function NotFound() {
   return (
     <main className="min-h-screen bg-background flex items-center justify-center">
       <div className="text-center px-6">
+        <Image
+          src="/brand/mpl-icon.svg"
+          alt=""
+          width={48}
+          height={48}
+          className="mx-auto mb-6 opacity-20"
+          aria-hidden="true"
+        />
         <h1 className="font-heading text-h1 font-bold text-text-primary mb-4">
           404 — Page not found.
         </h1>

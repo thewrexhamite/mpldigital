@@ -18,12 +18,12 @@ export const NAV = {
 };
 
 export const HERO = {
-  headline: 'Strategy meets code.',
-  subheadline:
-    'Web applications and digital strategy for ambitious businesses across North Wales and the North West.',
+  headlineBold: 'Strategy',
+  headlineLight: 'meets code.',
+  subheadline: 'Web applications and digital systems for ambitious businesses.',
   ctas: [
-    { label: 'See our services', href: '#services', variant: 'primary' as const },
-    { label: 'Get in touch', href: '#contact', variant: 'ghost' as const },
+    { label: 'Start a project', href: '#contact', variant: 'primary' as const },
+    { label: 'See services', href: '#services', variant: 'ghost' as const },
   ],
 };
 
