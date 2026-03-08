@@ -32,7 +32,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-small text-white/60 hover:text-white transition-colors duration-150 focus-ring"
+                      className="text-small text-white/60 hover:text-white transition-all duration-200 hover:translate-x-0.5 inline-block focus-ring"
                     >
                       {link.label}
                     </a>
@@ -52,7 +52,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href || '#'}
                     aria-label={`MPL Digital on ${social.label}`}
-                    className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-150 focus-ring"
+                    className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300 ease-in-out hover:scale-110 focus-ring"
                   >
                     <Icon size={18} aria-hidden="true" />
                   </a>
@@ -61,7 +61,7 @@ export default function Footer() {
             </div>
             <a
               href={`mailto:${SITE.email}`}
-              className="text-small text-white/60 hover:text-accent transition-colors duration-150 focus-ring"
+              className="text-small text-white/60 hover:text-accent transition-colors duration-200 focus-ring"
             >
               {SITE.email}
             </a>

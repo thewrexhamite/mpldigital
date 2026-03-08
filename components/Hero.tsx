@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { HERO } from '@/constants/content';
 
 export default function Hero() {
@@ -12,11 +13,8 @@ export default function Hero() {
     >
       {/* Stylised background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Blue radial glow — anchored behind the illustration */}
         <div className="absolute top-1/4 right-[-10%] w-[800px] h-[800px] rounded-full bg-accent/[0.04] blur-[120px]" />
-        {/* Secondary warm glow — top-left for depth */}
         <div className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-[#e0e7ff]/40 blur-[120px]" />
-        {/* Subtle bottom fade to cleanly transition into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
 
@@ -26,32 +24,48 @@ export default function Hero() {
         <div>
           <h1
             id="hero-heading"
-            className="font-heading text-display font-bold tracking-[-0.04em] leading-[1.05] text-text-primary mb-6"
+            className="font-heading text-display font-bold tracking-[-0.04em] leading-[1.05] text-text-primary mb-6 animate-fade-in-up"
           >
             {HERO.headlineBold} <span className="font-normal">{HERO.headlineLight}</span>
           </h1>
-          <p className="text-xl text-text-secondary max-w-md mb-10 leading-relaxed">
+          <p
+            className="text-xl text-text-secondary max-w-md mb-10 leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: '120ms' }}
+          >
             {HERO.subheadline}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div
+            className="flex flex-wrap gap-4 animate-fade-in-up"
+            style={{ animationDelay: '240ms' }}
+          >
             {HERO.ctas.map((cta) => (
               <a
                 key={cta.href + cta.label}
                 href={cta.href}
-                className={`inline-flex items-center justify-center min-h-[48px] min-w-[44px] px-7 py-3 font-medium text-body rounded-lg transition-all duration-150 focus-ring ${
+                className={`group inline-flex items-center justify-center min-h-[48px] min-w-[44px] px-7 py-3 font-medium text-body rounded-lg transition-all duration-300 ease-in-out focus-ring ${
                   cta.variant === 'primary'
-                    ? 'bg-accent text-white hover:bg-accent/90 active:scale-[0.98] shadow-sm shadow-accent/20'
-                    : 'border border-border text-text-primary hover:border-text-secondary/40 hover:bg-surface active:scale-[0.98]'
+                    ? 'bg-accent text-white hover:bg-accent/90 hover:shadow-soft-lg hover:-translate-y-0.5 active:scale-[0.98] shadow-sm shadow-accent/20'
+                    : 'border border-border text-text-primary hover:border-text-secondary/40 hover:bg-surface hover:shadow-soft hover:-translate-y-0.5 active:scale-[0.98]'
                 }`}
               >
                 {cta.label}
+                {cta.variant === 'primary' && (
+                  <ArrowRight
+                    size={16}
+                    className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                )}
               </a>
             ))}
           </div>
         </div>
 
         {/* Right — 3D hero illustration */}
-        <div className="hidden md:flex items-center justify-center">
+        <div
+          className="hidden md:flex items-center justify-center animate-fade-in"
+          style={{ animationDelay: '300ms' }}
+        >
           <Image
             src="/brand/mpl-hero-3d.png"
             alt="MPL Digital — abstract node system illustration"

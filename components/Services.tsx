@@ -21,12 +21,19 @@ export default function Services() {
       ref={ref as React.RefObject<HTMLElement>}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 py-28">
-        <p className="uppercase tracking-[0.15em] text-small text-text-secondary font-medium mb-4">
+        <p
+          className={`uppercase tracking-[0.15em] text-small text-text-secondary font-medium mb-4 transition-all duration-700 ease-[var(--ease-out-soft)] ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
           {SERVICES.headline}
         </p>
         <h2
           id="services-heading"
-          className="font-heading text-h2 font-bold text-text-primary mb-16"
+          className={`font-heading text-h2 font-bold text-text-primary mb-16 transition-all duration-700 ease-[var(--ease-out-soft)] ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ transitionDelay: isIntersecting ? '80ms' : '0ms' }}
         >
           {SERVICES.headline}
         </h2>
@@ -36,14 +43,18 @@ export default function Services() {
             return (
               <div
                 key={item.id}
-                className={`bg-surface rounded-lg p-7 border border-border/60 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-black/[0.04] hover:border-border ${
-                  isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+                className={`group bg-surface rounded-lg p-7 border border-border/60 transition-all duration-300 ease-in-out cursor-default
+                  hover:-translate-y-1 hover:shadow-soft-lg hover:border-border
+                  ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                 style={{
-                  transitionDelay: isIntersecting ? `${i * 80}ms` : '0ms',
+                  transitionDelay: isIntersecting ? `${160 + i * 100}ms` : '0ms',
+                  transitionProperty: isIntersecting
+                    ? 'opacity, transform, box-shadow, border-color'
+                    : 'opacity, transform',
+                  transitionDuration: isIntersecting ? '700ms' : '300ms',
                 }}
               >
-                <div className="w-10 h-10 rounded-lg bg-accent/[0.07] flex items-center justify-center mb-5">
+                <div className="w-10 h-10 rounded-lg bg-accent/[0.07] flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-accent/[0.12] group-hover:scale-110">
                   <Icon size={20} className="text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="font-heading text-h3 font-semibold text-text-primary mb-2">
