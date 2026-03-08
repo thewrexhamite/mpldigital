@@ -52,11 +52,11 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8 flex items-center justify-between h-[72px]">
         <Link href="/" className="focus-ring" aria-label="MPL Digital home">
           <Image
-            src="/brand/mpl-logo-dark.svg"
+            src="/brand/mpl-logo-dark.png"
             alt="MPL Digital"
             width={200}
             height={60}
-            className="h-11 w-auto"
+            className="h-10 w-auto"
             priority
           />
         </Link>
